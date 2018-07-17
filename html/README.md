@@ -1,2 +1,2 @@
 # fasthour
-fasthour vai acelerar suas horas.
+fasthour vai acelerar suas horas :).
