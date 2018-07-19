@@ -14,7 +14,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        //campos unicos String só aceitam 191 caracteres
         Schema::defaultStringLength(191);
+        
     }
 
     /**
