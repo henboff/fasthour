@@ -11,7 +11,7 @@
 |
 */
 
-$this->get('/','Site\SiteController@index');
+$this->get('/','Portal\PortalController@index');
 
 Auth::routes();
 
