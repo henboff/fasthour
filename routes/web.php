@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+$this->get('/','Site\SiteController@index');
 
 Auth::routes();
 
