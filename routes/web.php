@@ -10,9 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Define um grupo de rotas que devem ser autenticadas com o namespace Admin
-$this->group(['middleware' => ['auth'], 'namespace' => 'Painel'],function(){
-    $this->get('painel','PainelController@index')->name('painel.home');
+//Define um grupo de rotas que devem ser autenticadas com o namespace Painel
+$this->group(['middleware' => ['auth'], 'namespace' => 'Painel', 'prefix' => 'painel'],function(){
+    $this->get('/','PainelController@index')->name('painel.home');
+    $this->get('professores','ProfessorController@index')->name('professor.home');
 
 });
 

@@ -109,11 +109,7 @@ return [
 
     'menu' => [
         'GERENCIAMENTO DE HORÁRIOS',
-        [
-            'text' => 'Blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
+        
         [
             'text'        => 'Horários Escolares',
             'url'         => 'admin/pages',
@@ -124,12 +120,12 @@ return [
         'CADASTRAR',
         [
             'text' => 'Professores',
-            'url'  => 'admin/professores',
+            'url'  => 'painel/professores',
             'icon' => 'users',
         ],
         [
             'text' => 'Disciplina',
-            'url'  => 'admin/disciplina',
+            'url'  => 'painel/disciplina',
             'icon' => 'book',
         ],
         
