@@ -14,7 +14,8 @@
 $this->group(['middleware' => ['auth'], 'namespace' => 'Painel', 'prefix' => 'painel'],function(){
     $this->get('/','PainelController@index')->name('painel.home');
     $this->get('professores','ProfessorController@index')->name('professor.home');
-
+    $this->get('professores/cadastro','ProfessorController@cadastro')->name('professor.cadastro');
+    $this->post('professores/store','ProfessorController@cadastroStore')->name('professor.store');
 });
 
 $this->get('/','Portal\PortalController@index')->name('home');
