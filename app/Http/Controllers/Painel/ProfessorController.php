@@ -43,4 +43,30 @@ class ProfessorController extends Controller
                   ->with('error', 'Falha ao cadastrar, você inseriu algum dado incorreto.');
         
     }
+
+    public function editar($id)
+    {
+        $prof = Professor::findOrFail($id);
+        return view('painel.professores.editar', compact('prof'));
+    }
+
+    public function atualizar($id, Request $request)
+    {
+        $prof = Professor::findOrFail($id);
+        $insert = $prof->update($request->all());
+        if ($insert)
+         return redirect()
+                      ->route('professor.home')
+                      ->with('success', 'Professor editado com sucesso!');
+ 
+        // Redireciona de volta com uma mensagem de erro
+        return redirect()
+                  ->back()
+                  ->with('error', 'Falha ao editar, você inseriu algum dado incorreto.');
+        
+    }
+    public function deletar($id)
+    {
+        
+    }
 }

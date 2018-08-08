@@ -46,14 +46,30 @@
                         <div class="col-lg-4">
                           <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
                           <h2>Professor {{ $prof->prof_nome }}</h2>
-                          <p><a class="btn btn-sm" href="#" role="button">Editar &raquo;</a></p>
+                          <p><a href="professores/{{$prof->id_professor}}/editar" class="btn btn-warning">Editar &raquo;</a>
+                            &nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirm">Excluir <i class="fa fa-trash" aria-hidden="true"></i></button></p>
+                            <br>
                         </div><!-- /.col-lg-4 -->
                     @empty
                         <p>Não há professores cadastrados.</p>
                     @endforelse
                 </div><!-- /.row -->
             
-         
+                <div class="modal fade" id="confirm" role="dialog">
+                    <div class="modal-dialog modal-md">
+                  
+                      <div class="modal-content">
+                        <div class="modal-body">
+                              <p> Você deseja realmente excluir este professor?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <a href="#" type="button" class="btn btn-danger" id="delete">Excluir Professor</a>
+                              <button type="button" data-dismiss="modal" class="btn btn-default">Cancelar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 
         </div>
         
