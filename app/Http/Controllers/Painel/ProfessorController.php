@@ -67,6 +67,11 @@ class ProfessorController extends Controller
     }
     public function deletar($id)
     {
-        
+        $prof = Professor::findOrFail($id);
+        $prof->delete();
+        return redirect()
+                    ->route('professor.home')
+                    ->with('success', 'Professor excluido com sucesso!');
+                      
     }
 }

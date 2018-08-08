@@ -48,28 +48,34 @@
                           <h2>Professor {{ $prof->prof_nome }}</h2>
                           <p><a href="professores/{{$prof->id_professor}}/editar" class="btn btn-warning">Editar &raquo;</a>
                             &nbsp;&nbsp;&nbsp;
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirm">Excluir <i class="fa fa-trash" aria-hidden="true"></i></button></p>
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirma_{{$prof->id_professor}}">Excluir <i class="fa fa-trash" aria-hidden="true"></i></button></p>
                             <br>
+                            <div class="modal fade" id="confirma_{{$prof->id_professor}}" role="dialog">
+                                <div class="modal-dialog modal-md">
+                              
+                                  <div class="modal-content">
+                                    <div class="modal-body">
+                                          <p> Você deseja realmente excluir o professor {{ $prof->prof_nome }}?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <form  style="" action="{{ route('professor.deletar',$prof->id_professor) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#confirm">Excluir <i class="fa fa-trash" aria-hidden="true"></i></button>
+                                            <button type="button" data-dismiss="modal" class="btn btn-default">Cancelar</button>
+                                        </form>
+                                          
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                         </div><!-- /.col-lg-4 -->
                     @empty
                         <p>Não há professores cadastrados.</p>
                     @endforelse
                 </div><!-- /.row -->
             
-                <div class="modal fade" id="confirm" role="dialog">
-                    <div class="modal-dialog modal-md">
-                  
-                      <div class="modal-content">
-                        <div class="modal-body">
-                              <p> Você deseja realmente excluir este professor?</p>
-                        </div>
-                        <div class="modal-footer">
-                          <a href="#" type="button" class="btn btn-danger" id="delete">Excluir Professor</a>
-                              <button type="button" data-dismiss="modal" class="btn btn-default">Cancelar</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+            
                 
         </div>
         
