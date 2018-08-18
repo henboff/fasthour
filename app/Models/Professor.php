@@ -35,4 +35,5 @@ class Professor extends Eloquent
 	{
 		return $this->hasMany(\App\Models\ProfMateria::class, 'id_professor');
 	}
+
 }

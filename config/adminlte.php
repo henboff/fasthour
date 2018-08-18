@@ -125,7 +125,7 @@ return [
         ],
         [
             'text' => 'Disciplina',
-            'url'  => 'painel/disciplina',
+            'url'  => 'painel/disciplinas',
             'icon' => 'book',
         ],
         

@@ -22,6 +22,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  */
 class Disciplina extends Eloquent
 {
+	protected $table = "Disciplinas";
 	protected $primaryKey = 'id_disciplina';
 	public $timestamps = false;
 
@@ -34,4 +35,14 @@ class Disciplina extends Eloquent
 	{
 		return $this->hasMany(\App\Models\Materia::class, 'id_disciplina');
 	}
+
+	public function getAll( $filters = array() )
+	{
+    	$users = $this->select('*');
+		foreach( $filters as $key => $value )
+		{
+    		$users->where( $value['field'], $value['operation'], $value['value'] );
+    	}
+    	return $users->paginate(10);
+    }
 }

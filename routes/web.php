@@ -19,6 +19,7 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Painel', 'prefix' => 'pa
     $this->post('professores/store','ProfessorController@cadastroStore')->name('professor.store');
     $this->patch('professores/{prof}','ProfessorController@atualizar')->name('professor.atualizar');
     $this->delete('professores/{prof}','ProfessorController@deletar')->name('professor.deletar');
+    Route::resource('disciplinas','DisciplinaController');
 });
 
 $this->get('/','Portal\PortalController@index')->name('home');
