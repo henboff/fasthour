@@ -18,6 +18,16 @@
     @stop
 
 @section('content')
+
+    @if ($errors->any())
+        <ul class="list-group"></ul>
+            @foreach ($errors->all() as $error)
+                <li class="list-group-item list-group-item-danger">{{ $error }}</li>
+        
+        
+            @endforeach
+    @endif
+
     <div class="box">
         <div class="box-header">
             <h3>Cadastre um novo professor</h3>

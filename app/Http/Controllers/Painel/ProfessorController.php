@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Painel;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProfessorRequest;
 use DB;
 
 use App\Models\Professor;
@@ -24,7 +25,7 @@ class ProfessorController extends Controller
     }
 
     //esta função insere os dados na tabela professor usando a Model Professor
-    public function cadastroStore(Request $request, Professor $professor) 
+    public function cadastroStore(ProfessorRequest $request, Professor $professor) 
     {
         // Insere um novo professor, de acordo com os dados informados pelo usuário
         $insert = $professor->create($request->all());
@@ -50,7 +51,7 @@ class ProfessorController extends Controller
         return view('painel.professores.editar', compact('prof'));
     }
 
-    public function atualizar($id, Request $request)
+    public function atualizar($id, ProfessorRequest $request)
     {
         $prof = Professor::findOrFail($id);
         $insert = $prof->update($request->all());
