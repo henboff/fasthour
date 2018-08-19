@@ -24,7 +24,7 @@ class ProfessorRequest extends FormRequest
     public function rules()
     {
         return [
-            'prof_nome' => 'required|min:100'
+            'prof_nome' => 'required|max:100'
         ];
     }
 
@@ -32,7 +32,7 @@ class ProfessorRequest extends FormRequest
     {
         return [
             'prof_nome.required' => 'É obrigatório preencher o nome do professor no seu respectivo campo.',
-            'prof_nome.min' => 'O nome do professor só pode ter no máximo 100 caracteres.'
+            'prof_nome.max' => 'O nome do professor só pode ter no máximo 100 caracteres.'
 
         ];
     }
