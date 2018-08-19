@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Painel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Disciplina;
+use App\Http\Requests\DisciplinaRequest;
+
 use View;
 use Auth;
+
 
 class DisciplinaController extends Controller
 {
@@ -58,7 +61,7 @@ class DisciplinaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DisciplinaRequest $request)
     {
         $this->validate($request, [
             'disc_nome' => 'required',
@@ -90,7 +93,7 @@ class DisciplinaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DisciplinaRequest $request, $id)
     {
         $this->validate($request, [
             'disc_nome' => 'required',
