@@ -13,7 +13,7 @@
 <div class="container-fluid spark-screen">
         <section class="content-header">
             <h2>
-                Editar as {{ $module_name }}
+                Editar a {{ $module_name }}
             </h2>
         </section>
      

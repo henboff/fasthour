@@ -5,17 +5,17 @@
 
 
 @section('content_header')
-    <h1>{{ $module_name }}</h1>
+    <h1>
+        {{ $module_name }}
+        <a href="{{route($route_path.'.create')}}" class="btn btn-primary pull-right"><i class='fa fa-plus-circle'></i> Adicionar {{ $module_name }}</a>
+    </h1> 
 @stop
 
 @section('content')
     <!-- Content Header (Page header) -->
     <div class="container-fluid spark-screen">
     <section class="content-header">
-        <h1>
-            {{ $module_name }}
-            <a href="{{route($route_path.'.create')}}" class="btn btn-primary pull-right"><i class='fa fa-plus-circle'></i> Adicionar {{ $module_name }}</a>
-        </h1>        
+               
     </section>
  
     <section class="content">
