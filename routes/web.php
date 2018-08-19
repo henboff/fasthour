@@ -20,6 +20,7 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Painel', 'prefix' => 'pa
     $this->patch('professores/{prof}','ProfessorController@atualizar')->name('professor.atualizar');
     $this->delete('professores/{prof}','ProfessorController@deletar')->name('professor.deletar');
     Route::resource('disciplinas','DisciplinaController');
+    Route::resource('turmas','TurmaController');
 });
 
 $this->get('/','Portal\PortalController@index')->name('home');

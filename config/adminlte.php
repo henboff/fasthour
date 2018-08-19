@@ -124,9 +124,15 @@ return [
             'icon' => 'users',
         ],
         [
-            'text' => 'Disciplina',
+            'text' => 'Disciplinas',
             'url'  => 'painel/disciplinas',
             'icon' => 'book',
+        ],
+
+        [
+            'text' => 'Turmas',
+            'url'  => 'painel/turmas',
+            'icon' => 'group',
         ],
         
     ],
