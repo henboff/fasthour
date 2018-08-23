@@ -11,4 +11,9 @@ class PainelController extends Controller
     {
         return view('painel.home.index');
     }
+
+    public function logindev()
+    {
+        return view('painel.logindev');
+    }
 }
