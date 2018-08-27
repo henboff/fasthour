@@ -33,7 +33,7 @@ class Disciplina extends Eloquent
 
 	public function materias()
 	{
-		return $this->hasMany(\App\Models\Materia::class, 'id_disciplina');
+		return $this->belongsToMany(\App\Models\Materia::class, 'id_disciplina');
 	}
 
 	public function getAll( $filters = array() )

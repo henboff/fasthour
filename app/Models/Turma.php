@@ -31,7 +31,7 @@ class Turma extends Eloquent
 
 	public function materias()
 	{
-		return $this->hasMany(\App\Models\Materia::class, 'id_turma');
+		return $this->belongsToMany(\App\Models\Materia::class, 'id_turma');
 	}
 
 	public function getAll( $filters = array() )
