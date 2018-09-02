@@ -21,11 +21,9 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Painel', 'prefix' => 'pa
     $this->delete('professores/{prof}','ProfessorController@deletar')->name('professor.deletar');
     Route::resource('disciplinas','DisciplinaController');
     Route::resource('turmas','TurmaController');
-
 });
 
 $this->get('/','Portal\PortalController@index')->name('home');
-$this->get('/logindev','Painel\PainelController@logindev')->name('logindev');
 
 Auth::routes();
 
