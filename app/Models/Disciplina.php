@@ -31,9 +31,9 @@ class Disciplina extends Eloquent
 		'disc_disp'
 	];
 
-	public function materias()
+	public function turma()
 	{
-		return $this->hasMany(\App\Models\Materia::class, 'id_disciplina');
+		return $this->belongsToMany(\App\Models\Turma::class, 'Materias','id_disciplina','id_turma');
 	}
 
 	public function getAll( $filters = array() )

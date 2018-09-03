@@ -29,9 +29,9 @@ class Turma extends Eloquent
 		'tur_nome'
 	];
 
-	public function materias()
+	public function disciplina()
 	{
-		return $this->hasMany(\App\Models\Materia::class, 'id_turma');
+		return $this->belongsToMany(\App\Models\Disciplina::class, 'Materias','id_turma','id_disciplina');
 	}
 
 	public function getAll( $filters = array() )
