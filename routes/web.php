@@ -21,9 +21,14 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Painel', 'prefix' => 'pa
     $this->delete('professores/{prof}','ProfessorController@deletar')->name('professor.deletar');
     Route::resource('disciplinas','DisciplinaController');
     Route::resource('turmas','TurmaController');
+    $this->get('turmas/{turma}/materias','MateriaController@index')->name('materia.index');
+    $this->post('turmas/{turma}/materias/store','MateriaController@store')->name('materia.store');
+
 });
 
 $this->get('/','Portal\PortalController@index')->name('home');
+$this->post('distur/{turma}/disciplina','Painel\TurmaController@adddisciplina')->name('turma.add.disc');
+$this->get('distur/{turma}','Painel\TurmaController@showdisc')->name('turma.showdisc');
 
 Auth::routes();
 

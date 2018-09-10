@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Painel;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Turma;
 use App\Models\Disciplina;
 use App\Http\Requests\DisciplinaRequest;
 

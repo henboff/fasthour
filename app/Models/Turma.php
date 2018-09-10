@@ -29,7 +29,7 @@ class Turma extends Eloquent
 		'tur_nome'
 	];
 
-	public function disciplina()
+	public function disciplinas()
 	{
 		return $this->belongsToMany(\App\Models\Disciplina::class, 'Materias','id_turma','id_disciplina');
 	}

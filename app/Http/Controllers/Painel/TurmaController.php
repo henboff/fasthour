@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Painel;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Disciplina;
 use App\Models\Turma;
 use App\Http\Requests\TurmaRequest;
 
@@ -117,6 +118,13 @@ class TurmaController extends Controller
         $this->model->find($id)->delete();
         return redirect()->route($this->route_path.'.index')
                         ->with('success',$this->module_name.' apagada com sucesso');
+    }
+
+    public function disciplina($id_turm)
+    {
+        dd($disc = Turma::find($id_turm)->disciplinas);
+        
+        //return $disc;
     }
 
 }
