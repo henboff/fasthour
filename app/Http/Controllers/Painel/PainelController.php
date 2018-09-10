@@ -11,4 +11,9 @@ class PainelController extends Controller
     {
         return view('painel.home.index');
     }
+
+    public function horario()
+    {
+        return view('painel.horario.index');
+    }
 }

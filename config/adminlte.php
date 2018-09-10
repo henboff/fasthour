@@ -112,7 +112,7 @@ return [
         
         [
             'text'        => 'Horários Escolares',
-            'url'         => 'admin/pages',
+            'url'         => 'painel/horario',
             'icon'        => 'th',
             'label'       => 4,
             'label_color' => 'success',

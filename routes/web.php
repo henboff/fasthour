@@ -13,6 +13,7 @@
 //Define um grupo de rotas que devem ser autenticadas com o namespace Painel
 $this->group(['middleware' => ['auth'], 'namespace' => 'Painel', 'prefix' => 'painel'],function(){
     $this->get('/','PainelController@index')->name('painel.home');
+    $this->get('horario/','PainelController@horario')->name('painel.horario');
     $this->get('professores','ProfessorController@index')->name('professor.home');
     $this->get('professores/cadastro','ProfessorController@cadastro')->name('professor.cadastro');
     $this->get('professores/{prof}/editar','ProfessorController@editar')->name('professor.editar');
