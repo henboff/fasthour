@@ -9,217 +9,158 @@
 @section('css')
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
 	<script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+	<link rel="stylesheet" href="{{ asset('css/horario/style.css') }}">
 @stop
 
 @section('content')
-    <p>You are logged in!</p>
+    <p>Está na hora de montar!</p>
 
     <!--Montar horário escolar-->
 
-    <h2>Creating a School Timetable</h2>
-	<div class="demo-info" style="margin-bottom:10px">
-		<div class="demo-tip icon-tip">&nbsp;</div>
-		<div>Click and drag a class to timetable.</div>
-	</div>
+	<div id="main_container">
+			<!-- tables inside this DIV could have draggable content -->
+			<div id="redips-drag">
+	
+				<!-- left container (table with subjects) -->
+				<div id="left">
+					<table id="table1">
+						<colgroup>
+							<col width="190"/>
+						</colgroup>
+						<tbody>
+							<tr><td class="dark"><div id="ar" class="redips-drag redips-clone ar">Empreendedorismo<br>Juliano</div><input id="b_ar" class="ar" type="button" value="" onclick="redips.report('ar')" title="Show only Arts"/></td></tr>
+							<tr><td class="dark"><div id="bi" class="redips-drag redips-clone bi">Banco de Dados<br>Kaiser</div><input id="b_bi" class="bi" type="button" value="" onclick="redips.report('bi')" title="Show only Biology"/></td></tr>
+							<tr><td class="dark"><div id="ch" class="redips-drag redips-clone ch">Des. Sistemas<br>Luiz</div><input id="b_ch" class="ch" type="button" value="" onclick="redips.report('ch')" title="Show only Chemistry"/></td></tr>
+							<tr><td class="dark"><div id="en" class="redips-drag redips-clone en">Inglês<br>Ingrid</div><input id="b_en" class="en" type="button" value="" onclick="redips.report('en')" title="Show only English"/></td></tr>
+							<tr><td class="dark"><div id="et" class="redips-drag redips-clone et">Filosofia<br>Clodoaldo</div><input id="b_et" class="et" type="button" value="" onclick="redips.report('et')" title="Show only Ethics"/></td></tr>
+							<tr><td class="dark"><div id="hi" class="redips-drag redips-clone hi">História<br>Gilson</div><input id="b_hi" class="hi" type="button" value="" onclick="redips.report('hi')" title="Show only History"/></td></tr>
+							<tr><td class="dark"><div id="it" class="redips-drag redips-clone it">Quimíca<br>Joelson</div><input id="b_it" class="it" type="button" value="" onclick="redips.report('it')" title="Show only IT"/></td></tr>
+							<tr><td class="dark"><div id="ma" class="redips-drag redips-clone ma">Matemática<br>Samanta</div><input id="b_ma" class="ma" type="button" value="" onclick="redips.report('ma')" title="Show only Mathematics"/></td></tr>
+							<tr><td class="dark"><div id="ph" class="redips-drag redips-clone ph">Física<br>Juliano de Deus</div><input id="b_ph" class="ph" type="button" value="" onclick="redips.report('ph')" title="Show only Physics"/></td></tr>
+							<tr><td class="redips-trash" title="Trash">Lixeira</td></tr>
+						</tbody>
+					</table>
+				</div><!-- left container -->
+				
+				<!-- right container -->
+				<div id="right">
+					<table id="table2">
+						<colgroup>
+							<col width="50"/>
+							<col width="100"/>
+							<col width="100"/>
+							<col width="100"/>
+							<col width="100"/>
+							<col width="100"/>
+						</colgroup>
+						<tbody>
+							<tr>
+								<!-- if checkbox is checked, clone school subjects to the whole table row  -->
+								<td class="redips-mark blank">
+									<input id="week" type="checkbox" title="Apply school subjects to the week" checked/>
+									<input id="report" type="checkbox" title="Show subject report"/>
+								</td>
+								<td class="redips-mark dark">Segunda</td>
+								<td class="redips-mark dark">Terça</td>
+								<td class="redips-mark dark">Quarta</td>
+								<td class="redips-mark dark">Thursday</td>
+								<td class="redips-mark dark">Friday</td>
 
-	<div style="width:700px;">
-		<div class="left">
-			<table>
-				<tr>
-					<td><div class="item">English</div></td>
-				</tr>
-				<tr>
-					<td><div class="item">Science</div></td>
-				</tr>
-				<tr>
-					<td><div class="item">Music</div></td>
-				</tr>
-				<tr>
-					<td><div class="item">History</div></td>
-				</tr>
-				<tr>
-					<td><div class="item">Computer</div></td>
-				</tr>
-				<tr>
-					<td><div class="item">Mathematics</div></td>
-				</tr>
-				<tr>
-					<td><div class="item">Arts</div></td>
-				</tr>
-				<tr>
-					<td><div class="item">Ethics</div></td>
-				</tr>
-			</table>
-		</div>
-		<div class="right">
-			<table>
-				<tr>
-					<td class="blank"></td>
-					<td class="title">Monday</td>
-					<td class="title">Tuesday</td>
-					<td class="title">Wednesday</td>
-					<td class="title">Thursday</td>
-					<td class="title">Friday</td>
-				</tr>
-				<tr>
-					<td class="time">08:00</td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-				</tr>
-				<tr>
-					<td class="time">09:00</td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-				</tr>
-				<tr>
-					<td class="time">10:00</td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-				</tr>
-				<tr>
-					<td class="time">11:00</td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-				</tr>
-				<tr>
-					<td class="time">12:00</td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-				</tr>
-				<tr>
-					<td class="time">13:00</td>
-					<td class="lunch" colspan="5">Lunch</td>
-				</tr>
-				<tr>
-					<td class="time">14:00</td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-				</tr>
-				<tr>
-					<td class="time">15:00</td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-				</tr>
-				<tr>
-					<td class="time">16:00</td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-					<td class="drop"></td>
-				</tr>
-			</table>
-		</div>
-	</div>
-	<style type="text/css">
-		.left{
-			width:120px;
-			float:left;
-		}
-		.left table{
-			background:#E0ECFF;
-		}
-		.left td{
-			background:#eee;
-		}
-		.right{
-			float:right;
-			width:570px;
-		}
-		.right table{
-			background:#E0ECFF;
-			width:100%;
-		}
-		.right td{
-			background:#fafafa;
-			color:#444;
-			text-align:center;
-			padding:2px;
-		}
-		.right td{
-			background:#E0ECFF;
-		}
-		.right td.drop{
-			background:#fafafa;
-			width:100px;
-		}
-		.right td.over{
-			background:#FBEC88;
-		}
-		.item{
-			text-align:center;
-			border:1px solid #499B33;
-			background:#fafafa;
-			color:#444;
-			width:100px;
-		}
-		.assigned{
-			border:1px solid #BC2A4D;
-		}
-		.trash{
-			background-color:red;
-		}
-		
-	</style>
-	<script>
-		$(function(){
-			$('.left .item').draggable({
-				revert:true,
-				proxy:'clone'
-			});
-			$('.right td.drop').droppable({
-				onDragEnter:function(){
-					$(this).addClass('over');
-				},
-				onDragLeave:function(){
-					$(this).removeClass('over');
-				},
-				onDrop:function(e,source){
-					$(this).removeClass('over');
-					if ($(source).hasClass('assigned')){
-						$(this).append(source);
-					} else {
-						var c = $(source).clone().addClass('assigned');
-						$(this).empty().append(c);
-						c.draggable({
-							revert:true
-						});
-					}
-				}
-			});
-			$('.left').droppable({
-				accept:'.assigned',
-				onDragEnter:function(e,source){
-					$(source).addClass('trash');
-				},
-				onDragLeave:function(e,source){
-					$(source).removeClass('trash');
-				},
-				onDrop:function(e,source){
-					$(source).remove();
-				}
-			});
-		});
-	</script>
+							</tr>
+							<tr>
+								<td class="redips-mark dark">7:30</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="redips-mark dark">8:20</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="redips-mark dark">09:10</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="redips-mark dark">10:20</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="redips-mark dark">11:10</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="redips-mark dark">12:00</td>
+								<td class="redips-mark lunch" colspan="5">Rango</td>
+							</tr>
+							<tr>
+								<td class="redips-mark dark">13:30</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="redips-mark dark">14:20</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="redips-mark dark">15:10</td>
+								<td class="redips-mark lunch" colspan="5">Rango</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="redips-mark dark">15:30</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="redips-mark dark">16:20</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div><!-- right container -->
+			</div><!-- drag container -->
+		</div><!-- main container -->
+
+@stop
+
+@section('js')
+	<script src="{{ asset('js/horario/redips-drag-min.js') }}"></script>
+	<script src="{{ asset('js/horario/script.js') }}"></script>
 @stop
