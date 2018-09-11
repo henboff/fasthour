@@ -13,11 +13,48 @@
 @stop
 
 @section('content')
-    <p>Está na hora de montar!</p>
+
+	{{ Form::open(array('route' => 'horario.turma', 'method' => 'post')) }}
+                    <div class="col-xs-12">
+                        <div class="box">
+                            <div class="box-header with-border">
+                            <h3 class="box-title">Selecione uma turma</h3>
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                </div>
+                            </div>
+
+                            <div class="box-body">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        {{ Form::label('id_turma', 'Turma', array('class' => 'control-label') )}}
+                                        {{ Form::select('id_turma', $turmas, null, array('class' => 'form-control')) }}
+                                    </div>
+                                    <div class="form-group">
+                                    {{ Form::submit('Selecionar Turma', array('class' => 'btn btn-primary btn-sm')) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{ Form::close() }}
 
 	<div class="row" id="redips-drag">
 		<div class="col-6 col-md-4">
-			<table id="table1">
+		@if (isset($materias))
+    		<table id="table1">
+					<tbody>
+						@foreach($materias as $key => $materia)
+							<tr><td class="dark"><div id="ar" class="redips-drag redips-clone ar">{{ $materia->disc_nome }}</div><input id="b_ar" class="ar" type="button" value="" onclick="redips.report('ar')" title="Show only {{ $materia->disc_nome }}"/></td></tr>
+                    	@endforeach
+						<tr><td class="redips-trash" title="Trash">Lixeira</td></tr>
+						
+					</tbody>
+				</table>
+		@else
+    		<h2>Selecione uma turma primeiro.</h2>
+		@endif
+			<!--<table id="table1">
 					<tbody>
 						<tr><td class="dark"><div id="ar" class="redips-drag redips-clone ar">Empreendedorismo<br>Juliano</div><input id="b_ar" class="ar" type="button" value="" onclick="redips.report('ar')" title="Show only Arts"/></td></tr>
 						<tr><td class="dark"><div id="bi" class="redips-drag redips-clone bi">Banco de Dados<br>Kaiser</div><input id="b_bi" class="bi" type="button" value="" onclick="redips.report('bi')" title="Show only Biology"/></td></tr>
@@ -30,7 +67,7 @@
 						<tr><td class="dark"><div id="ph" class="redips-drag redips-clone ph">Física<br>Juliano de Deus</div><input id="b_ph" class="ph" type="button" value="" onclick="redips.report('ph')" title="Show only Physics"/></td></tr>
 						<tr><td class="redips-trash" title="Trash">Lixeira</td></tr>
 					</tbody>
-				</table>
+				</table>-->
 		</div>
 		<div class="col-12 col-md-8">
 					<table id="table2">

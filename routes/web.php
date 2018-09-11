@@ -24,6 +24,7 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Painel', 'prefix' => 'pa
     Route::resource('turmas','TurmaController');
     $this->get('turmas/{turma}/materias','MateriaController@index')->name('materia.index');
     $this->post('turmas/{turma}/materias/store','MateriaController@store')->name('materia.store');
+    $this->post('horario/montar','PainelController@montarhorario')->name('horario.turma');
 
 });
 
