@@ -73,6 +73,7 @@
                             <!-- Tuplas do banco de dados -->
                             <td>{{ $item->tur_nome }}</td>
                             <td>
+                            <a class="btn btn-warning btn-xs" href="{{ route('materia.index',$item->id_turma) }}"><i class="fa fa-edit"></i> Adicionar Matérias</a>
                                 <a class="btn btn-primary btn-xs" href="{{ route($route_path.'.edit',$item->id_turma) }}"><i class="fa fa-edit"></i> Editar</a>
                                 <button type="button" data-toggle="modal" data-target="#confirmDeleteModal-{{ $item->id_turma }}" class="btn btn-danger btn-xs"><i class="fa fa-remove"></i> Apagar</button>
                                 <!-- Modal (Confirm Delete) -->
