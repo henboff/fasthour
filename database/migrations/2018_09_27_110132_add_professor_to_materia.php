@@ -14,7 +14,8 @@ class AddProfessorToMateria extends Migration
     public function up()
     {
         Schema::table('Materias', function (Blueprint $table) {
-            //
+                $table->integer('id_professor')->nullable()->index('FK_Materias_Professores');
+                $table->foreign('id_professor', 'FK_Materias_Professores')->references('id_professor')->on('Professores')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
@@ -26,7 +27,8 @@ class AddProfessorToMateria extends Migration
     public function down()
     {
         Schema::table('Materias', function (Blueprint $table) {
-            //
+            $table->dropForeign('FK_Materias_Professores');
+            $table->dropColumn('id_professor');
         });
     }
 }

@@ -18,7 +18,7 @@ class PainelController extends Controller
     {
         //$turmas = Turma::get()->toArray();
         $turmas =  Turma::pluck('tur_nome','id_turma');
-        return view('painel.horario.teste',compact('turmas'));
+        return view('painel.horario.index',compact('turmas'));
     }
 
     public function montarhorario(Request $request )
