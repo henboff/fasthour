@@ -19,13 +19,15 @@ class MateriaController extends Controller
     public function index($id_turm)
     {
         $turma = Turma::find($id_turm);
-        dd($materias = Turma::find($id_turm)->disciplinas()->get());
+        $materias = Turma::find($id_turm)->disciplinas()->get();
+        //dd($materias[2]->pivot->id_professor);
         //$materias->pluck('disc_nome','id_disciplina');
         $disciplinas =  Disciplina::pluck('disc_nome','id_disciplina');
         //$disciplinas = $materia->values('id_disciplina','disc_nome');
         $disciplinas->all();
         
         $professores =  Professor::pluck('prof_nome','id_professor');
+        //dd($professores[$materias[2]->pivot->id_professor]);
         $professores->all();
         return view('painel.turmas.materias.index', compact('turma','disciplinas','materias','professores'));
     }

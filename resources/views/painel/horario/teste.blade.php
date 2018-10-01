@@ -42,7 +42,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-4">
-			<table class="table">
+			<table class="table"> 
 					<tbody>	
 							<tr><td><div>Matemática</div></td></tr>
 							<tr><td><div>Matemática</div></td></tr>

@@ -71,8 +71,10 @@
                             <tbody>
                                 @foreach($materias as $key => $materia)
                                     <tr>
+                                      
                                         <td>{{ ++$key }}</td>
                                         <td>{{ $materia->disc_nome }}</td>
+                                        <td>{{ $professores[$materias[2]->pivot->id_professor] }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>

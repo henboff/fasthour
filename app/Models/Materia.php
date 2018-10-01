@@ -29,12 +29,14 @@ class Materia extends Eloquent
 
 	protected $casts = [
 		'id_turma' => 'int',
-		'id_disciplina' => 'int'
+		'id_disciplina' => 'int',
+		'id_professor' => 'int'
 	];
 
 	protected $fillable = [
 		'id_turma',
-		'id_disciplina'
+		'id_disciplina',
+		'id_professor'
 	];
 
 	public function disciplina()
