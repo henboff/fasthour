@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Painel;
 use App\Models\Materia;
 use App\Models\Disciplina;
 use App\Models\Turma;
+use App\Models\Professor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -18,13 +19,15 @@ class MateriaController extends Controller
     public function index($id_turm)
     {
         $turma = Turma::find($id_turm);
-        $materias = Turma::find($id_turm)->disciplinas()->get();
+        dd($materias = Turma::find($id_turm)->disciplinas()->get());
+        //$materias->pluck('disc_nome','id_disciplina');
         $disciplinas =  Disciplina::pluck('disc_nome','id_disciplina');
         //$disciplinas = $materia->values('id_disciplina','disc_nome');
-        $materias->pluck('disc_nome','id_disciplina');
         $disciplinas->all();
-
-        return view('painel.turmas.materias.index', compact('turma','disciplinas','materias'));
+        
+        $professores =  Professor::pluck('prof_nome','id_professor');
+        $professores->all();
+        return view('painel.turmas.materias.index', compact('turma','disciplinas','materias','professores'));
     }
 
     /**
@@ -46,7 +49,7 @@ class MateriaController extends Controller
     public function store(Request $request, $id_turm)
     {
         $turma = Turma::find($id_turm);
-        $turma->disciplinas()->attach($request->id_disciplina);
+        $turma->disciplinas()->attach($request->id_disciplina,['id_professor' => $request->id_professor]);
         
         return redirect()
                       ->route('materia.index',$turma)

@@ -42,6 +42,10 @@
                                     <div class="form-group">
                                         {{ Form::label('id_disciplina', 'Disciplina', array('class' => 'control-label') )}}
                                         {{ Form::select('id_disciplina', $disciplinas, null, array('class' => 'form-control')) }}
+                                    </div> 
+                                    <div class="form-group">   
+                                        {{ Form::label('id_professor', 'Professor', array('class' => 'control-label') )}}
+                                        {{ Form::select('id_professor', $professores, null, array('class' => 'form-control')) }}
                                     </div>
                                     <div class="form-group">
                                     {{ Form::submit('Adicionar Matéria', array('class' => 'btn btn-primary btn-sm')) }}

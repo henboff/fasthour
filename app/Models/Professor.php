@@ -36,4 +36,9 @@ class Professor extends Eloquent
 		return $this->hasMany(\App\Models\ProfMateria::class, 'id_professor');
 	}
 
+	public function materias()
+	{
+		return $this->hasMany(\App\Models\Materia::class, 'id_materia');
+	}
+
 }

@@ -31,7 +31,7 @@ class Turma extends Eloquent
 
 	public function disciplinas()
 	{
-		return $this->belongsToMany(\App\Models\Disciplina::class, 'Materias','id_turma','id_disciplina');
+		return $this->belongsToMany(\App\Models\Disciplina::class, 'Materias','id_turma','id_disciplina')->withPivot(['id_professor']);
 	}
 
 	public function getAll( $filters = array() )
