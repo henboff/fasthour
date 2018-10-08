@@ -14,8 +14,8 @@ class CreateProfessoresTable extends Migration {
 	{
 		Schema::create('professores', function(Blueprint $table)
 		{
-			$table->integer('id_professor')->primary();
-			$table->string('tur_nome')->nullable();
+			$table->increments('id_professor', true);
+			$table->string('prof_nome')->nullable();
 			$table->string('prof_disp')->nullable();
 		});
 	}

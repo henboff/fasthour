@@ -16,9 +16,9 @@ class CreateDisciplinasTable extends Migration {
 		{
 			$table->string('disc_nome')->nullable();
 			$table->string('disc_disp')->nullable();
-			$table->integer('id_disciplina')->primary();
-			$table->integer('id_turma')->nullable()->index('FK_Disciplinas_Turmas');
-			$table->integer('id_professor')->nullable()->index('FK_Disciplinas_Professores');
+			$table->increments('id_disciplina', true);
+			$table->integer('id_turma')->unsigned()->nullable()->index('FK_Disciplinas_Turmas');
+			$table->integer('id_professor')->unsigned()->nullable()->index('FK_Disciplinas_Professores');
 		});
 	}
 

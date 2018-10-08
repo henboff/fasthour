@@ -14,7 +14,7 @@ class CreateTurmasTable extends Migration {
 	{
 		Schema::create('turmas', function(Blueprint $table)
 		{
-			$table->integer('id_turma')->primary();
+			$table->increments('id_turma', true);
 			$table->string('tur_nome')->nullable();
 		});
 	}
