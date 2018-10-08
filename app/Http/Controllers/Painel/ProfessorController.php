@@ -15,7 +15,7 @@ class ProfessorController extends Controller
     public function index()
     {
         $countprof = DB::table('Professores')->count();
-        $professores = Professor::get();
+        dd($professores = Professor::get());
         return view('painel.professores.index', compact('countprof','professores'));
     }
 

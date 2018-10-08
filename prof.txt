@@ -1,0 +1,15 @@
+INSERT INTO materias (id_materia, id_turma, id_professor, id_disciplina) VALUES (1, '1a', 'caniba', 'portugues');
+
+SELECT id_professor FROM materias WHERE id_turma = '1a' AND id_disciplina='portugues';
+
+
+
+
+
+
+
+
+SELECT id_professor,id_disciplina FROM materias WHERE id_turma = '1a';
+
+
+
