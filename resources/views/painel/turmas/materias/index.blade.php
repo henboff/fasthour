@@ -23,7 +23,7 @@
 
 @section('content')
 
-    <!-- Content Header (Page header) --> 
+    <!-- Content Header (Page header) -->
     <div class="container-fluid spark-screen">
         <section class="content">
             <div class="row">
@@ -42,8 +42,8 @@
                                     <div class="form-group">
                                         {{ Form::label('id_disciplina', 'Disciplina', array('class' => 'control-label') )}}
                                         {{ Form::select('id_disciplina', $disciplinas, null, array('class' => 'form-control')) }}
-                                    </div> 
-                                    <div class="form-group">   
+                                    </div>
+                                    <div class="form-group">
                                         {{ Form::label('id_professor', 'Professor', array('class' => 'control-label') )}}
                                         {{ Form::select('id_professor', $professores, null, array('class' => 'form-control')) }}
                                     </div>
@@ -71,10 +71,14 @@
                             <tbody>
                                 @foreach($materias as $key => $materia)
                                     <tr>
-                                      
+
                                         <td>{{ ++$key }}</td>
-                                        <td>{{ $materia->disc_nome }}</td>
-                                        <td>{{ $professores[$materias[2]->pivot->id_professor] }}</td>
+                                        <td>{{ $materia->disciplina->disc_nome }}</td>
+                                        @if (is_null($materia->professor))
+                                            <td>Sem professor</td>
+                                        @else
+                                            <td>{{$materia->professor->prof_nome}}</td>
+                                        @endif
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -83,7 +87,7 @@
                     @else
                         <div class="box-body table-responsive no-padding text-center">
                         <br/>
-                        <b>Sem registros por enquanto.</b><br /><br />                        
+                        <b>Sem registros por enquanto.</b><br /><br />
                     </div>
                     @endif
                 </div>

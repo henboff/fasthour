@@ -19,15 +19,21 @@ class MateriaController extends Controller
     public function index($id_turm)
     {
         $turma = Turma::find($id_turm);
-        $materias = Turma::find($id_turm)->disciplinas()->get();
+        //$materias = Turma::find($id_turm)->disciplinas()->get();
         //$professores = Materia::where('id_turma', $id_turm)->get();
-        $professores = Professor::pluck('prof_nome','id_professor');;
+        //dd($professores);
+        //$professores = Professor::pluck('prof_nome','id_professor');;
         //dd($materias[2]->pivot->id_professor);
-        $materias->pluck('disc_nome','id_disciplina');
+        //$materias->pluck('disc_nome','id_disciplina');
+
+        $materias = Materia::where('id_turma', $id_turm)->get();
+        //dd($materias[1]->disciplina);
+        $professores =  Professor::get();
+        $professores = Professor::pluck('prof_nome','id_professor');
         $disciplinas =  Disciplina::get();
         $disciplinas =  Disciplina::pluck('disc_nome','id_disciplina');
         $disciplinas->all();
-        
+
         //$professores =  Professor::pluck('prof_nome','id_professor');
         //dd($professores[$materias[2]->pivot->id_professor]);
         //$professores->all();
@@ -41,7 +47,7 @@ class MateriaController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
@@ -54,7 +60,7 @@ class MateriaController extends Controller
     {
         $turma = Turma::find($id_turm);
         $turma->disciplinas()->attach($request->id_disciplina,['id_professor' => $request->id_professor]);
-        
+
         return redirect()
                       ->route('materia.index',$turma)
                       ->with('success', 'Matéria adicionada com sucesso!');

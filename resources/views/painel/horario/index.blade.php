@@ -48,7 +48,7 @@
 							<tr><td class="dark"><div id="ar" class="redips-drag redips-clone ar">{{ $materia->disc_nome }}</div><input id="b_ar" class="ar" type="button" value="" onclick="redips.report('ar')" title="Show only {{ $materia->disc_nome }}"/></td></tr>
                     	@endforeach
 						<tr><td class="redips-trash" title="Trash">Lixeira</td></tr>
-						
+
 					</tbody>
 				</table>
 		@else

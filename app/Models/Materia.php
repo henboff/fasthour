@@ -11,11 +11,11 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class Materia
- * 
+ *
  * @property int $id_materia
  * @property int $id_turma
  * @property int $id_disciplina
- * 
+ *
  * @property \App\Models\Disciplina $disciplina
  * @property \App\Models\Turma $turma
  * @property \Illuminate\Database\Eloquent\Collection $prof_materia
@@ -24,6 +24,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  */
 class Materia extends Eloquent
 {
+    protected $table = 'Materias'; //nome da tabela que esse model representa
 	protected $primaryKey = 'id_materia';
 	public $timestamps = false;
 
